@@ -58,6 +58,11 @@ func (l *List) GetRow(i int) fyne.CanvasObject {
 	return l.box.Children[i]
 }
 
+// Remove deletes row from List
+func (l *List) Remove(i int) {
+	l.box.Children = append(l.box.Children[:i], l.box.Children[i+1:]...)
+}
+
 // MinSize returns the size that this widget should not shrink below
 func (l *List) MinSize() fyne.Size {
 	l.ExtendBaseWidget(l)
