@@ -53,6 +53,11 @@ func (l *List) Append(object fyne.CanvasObject) int {
 	return len(l.box.Children) - 1
 }
 
+// Pop removes last object from the List
+func (l *List) Pop() {
+	l.box.Children = l.box.Children[:len(l.box.Children)-1]
+}
+
 // GetRow uses index to return object
 func (l *List) GetRow(i int) fyne.CanvasObject {
 	return l.box.Children[i]
