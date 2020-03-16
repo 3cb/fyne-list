@@ -36,17 +36,26 @@ func NewListWithScroller(header fyne.CanvasObject, children ...fyne.CanvasObject
 }
 
 // Prepend inserts a new CanvasObject at the top of the group
-func (l *List) Prepend(object fyne.CanvasObject) {
+// Method returns the index of the added object
+func (l *List) Prepend(object fyne.CanvasObject) int {
 	l.box.Prepend(object)
 
 	canvas.Refresh(l)
+	return 0
 }
 
 // Append adds a new CanvasObject to the end of the group
-func (l *List) Append(object fyne.CanvasObject) {
+// Method returns the index of the added object
+func (l *List) Append(object fyne.CanvasObject) int {
 	l.box.Append(object)
 
 	canvas.Refresh(l)
+	return len(l.box.Children) - 1
+}
+
+// GetRow uses index to return object
+func (l *List) GetRow(i int) fyne.CanvasObject {
+	return l.box.Children[i]
 }
 
 // MinSize returns the size that this widget should not shrink below
