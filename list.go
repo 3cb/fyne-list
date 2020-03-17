@@ -18,7 +18,8 @@ type List struct {
 	content fyne.CanvasObject
 }
 
-// NewList creates a new grouped list widget with a header and the specified list of child objects
+// NewList creates a new grouped list widget with a header and the specified
+// list of child objects
 func NewList(header fyne.CanvasObject, children ...fyne.CanvasObject) *List {
 	box := widget.NewVBox(children...)
 	list := &List{widget.BaseWidget{}, header, box, box}
